@@ -51,10 +51,6 @@
         }
     });
 
-    socket.on('position', pos =>{
-        $('#textArea').append('|',pos)
-    });
-
     let count = 0;
     setInterval(() => {
         let pos = $('#textArea').getCursorPosition()
