@@ -50,7 +50,6 @@ io.on('connection', socket => {
         let texto = {
             markdow: '',
             texto_normal: msg,
-            position: data.position
         }
         texto.markdow = conveter.makeHtml(msg)
         const message = new Msg({msg: data.message});
