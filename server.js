@@ -9,7 +9,7 @@ const showdown = require('showdown');
 const mongoDB = 'mongodb+srv://felipe:felipe123@cluster0.npf7f.mongodb.net/messages-realtime?retryWrites=true&w=majority'
 
 const port = process.env.PORT || 3000
-mongoose.connect(mongoDB).then(() => {
+mongoose.connect(process.env.MONGOB_URI || mongoDB).then(() => {
     console.log('mongo conectado')
 }).catch(err => console.log(err));
 
