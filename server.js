@@ -7,8 +7,8 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const Msg = require('./models/messages');
 const showdown = require('showdown');
+const cors = require('cors');
 const mongoDB = 'mongodb+srv://felipe:felipe123@cluster0.npf7f.mongodb.net/messages-realtime?retryWrites=true&w=majority'
-
 const port = process.env.PORT || 3000
 mongoose.connect(process.env.MONGODB_URI || mongoDB).then(() => {
     console.log('mongo conectado')
@@ -23,6 +23,12 @@ app.set('view engine', 'html');
 app.use('/', (req, res) => {
     res.render('index.html')
 })
+
+var corsOptions = {
+    origin: '*'
+};
+app.use(cors(corsOptions));
+
 let msg = ''
 
 io.on('connection', socket => {
