@@ -25,7 +25,7 @@
 <script src="script.js"></script>
 <script type="text/javascript">
 
-    let socket = io('https://projeto-websocket.herokuapp.com/');
+    let socket = io();
     $('#textArea').keyup( event => {
         menssage = $('#textArea').val()
         let messageObject = {
